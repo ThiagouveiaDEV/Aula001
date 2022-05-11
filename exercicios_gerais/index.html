@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <title>Minha página</title>
+        <script>
+            function sumirComOsPagos() {
+                let main = document.getElementById('main');
+
+                let eventos = document.getElementById('eventos_pagos');
+                main.removeChild(eventos);
+
+                let botao = document.getElementById('botaoEstouInteressado');
+                main.removeChild(botao);
+
+                alert('Blz cara. removi o anúncio.');
+
+                confirm("Deseja fazer outro anúncio?");
+            }
+
+            function somar() {
+                // obter o elemento resultado
+                let resultadoSpan = document.getElementById('resultado');
+                console.log(resultadoSpan);
+
+                let erroLimiteSpan = document.getElementById('erroLimite');
+                
+                // pegar o valor que está dentro dele
+                let valor = resultadoSpan.innerHTML;
+                console.log('valor: ', valor);
+                
+                // converter esse valor para número
+                let valorNumerico = parseInt(valor);
+                console.log('valorNumerico: ', valorNumerico);
+
+                if (valorNumerico == 10) {
+                    erroLimiteSpan.style.display = 'inline';
+
+                    // depois de 5000ms, sumir com o erro
+
+                    setTimeout( () => {
+                            let erroLimite = document.getElementById('erroLimite');
+                            erroLimite.style.display = 'none';
+                        }
+                        , 1000
+                    );
+                }
+
+                // adicionar 1
+                if (valorNumerico < 10) {
+                    valorNumerico = valorNumerico + 1;
+                }
+
+                
+
+                console.log('valorNumerico: ', valorNumerico);
+
+                // colocar o valor de volta dentro do elemnto (span)
+                resultadoSpan.innerHTML = valorNumerico;
+            }
+
+            function subtrair() {
+                // obter o elemento resultado
+                let resultadoSpan = document.getElementById('resultado');
+                console.log(resultadoSpan);
+
+                let erroLimiteSpan = document.getElementById('erroLimite');
+                
+                // pegar o valor que está dentro dele
+                let valor = resultadoSpan.innerHTML;
+                console.log('valor: ', valor);
+                
+                // converter esse valor para número
+                let valorNumerico = parseInt(valor);
+                console.log('valorNumerico: ', valorNumerico);
+
+                if (valorNumerico == 0) {
+                    erroLimiteSpan.style.display = 'inline';
+                }
+
+                // subtrair 1
+                if (valorNumerico > 0) {
+                    valorNumerico = valorNumerico - 1;
+                }
+
+                console.log('valorNumerico: ', valorNumerico);
+
+                // colocar o valor de volta dentro do elemnto (span)
+                resultadoSpan.innerHTML = valorNumerico;
+            }
+        </script>
+    </head>
+    <body>
+        <span id="thiago">
+            oi
+        </span>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html" >Inicio</a>
+                </li>
+                <li>
+                    <a href="animais.html">Animais</a>
+                </li>
+                <li>
+                    <a href="brinquedos.html">Brinquedos</a>
+                </li>
+                <li>
+                    <a href="starwars.html">Star Wars</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="main">
+            <h1>
+                Minha petshop legal
+            </h1>
+            <p>
+                Bem vindo.
+            </p>
+
+            <h2>Teste sem sentido interessante</h2>
+            
+            <button id="soma" onClick="subtrair()">
+                -
+            </button>
+            <span id="resultado">
+                0
+            </span>
+            <button id="subtrai" onClick="somar()">
+                +
+            </button>
+            <span class="erro" id="erroLimite" style="display: none;" >
+                Valores permitidos entre 0 e 10
+            </span>
+
+            <div class="eventos" id="eventos_gratuitos">
+                <h2>Próximos eventos gratuitos</h2>
+                <ul>
+                    <li>Banho coletivo de cães</li>
+                    <li>Banho coletivo de ornitorrincos</li>
+                </ul>
+            </div>
+
+            <button onClick="sumirComOsPagos()" id="botaoEstouInteressado">
+                Não estou interessado
+            </button>
+            <div class="eventos" id="eventos_pagos">
+                <h2>Próximos eventos pagos</h2>
+                <ul>
+                    <li>Banho coletivo de cães</li>
+                    <li>Banho coletivo de ornitorrincos</li>
+                </ul>
+            </div>
+
+            <div id="proximas_promocoes">
+                <h2>Próximas promoções</h2>
+                <ul>
+                    <li>Ofertas de coleiras</li>
+                    <li>Saldão de limpadores metálicos
+                        de pata trazeira de elefantes
+                        austríacos</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

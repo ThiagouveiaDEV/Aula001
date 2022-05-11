@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let page = 1;
+        async function pegarGalera() {
+            let request = await fetch('https://swapi.dev/api/people?page=' + page);
+            let personagens = document.getElementById('personagens');
+            let resultadoJson = await request.json();
+            console.log(resultadoJson);
+
+            const pessoal = resultadoJson.results;
+
+            personagens.innerHTML = "";
+
+            for (let i = 0; i < pessoal.length; i++) {
+                
+                let novoLi = document.createElement('li');
+                novoLi.innerHTML = pessoal[i].name;
+
+                personagens.appendChild(novoLi);
+            }
+        }
+
+        function proximaPagina() {
+            page = page + 1;
+            pegarGalera();
+        }
+
+        function paginaAnterior() {
+            if (page > 0) {
+                page = page - 1;
+            }
+            pegarGalera();
+        }
+
+
+
+        pegarGalera()
+
+    </script>
+</head>
+<body>
+    <h1>Star wars</h1>
+
+    <button onClick="paginaAnterior()">
+        Anterior
+    </button>
+    <button onClick="proximaPagina()">
+        Proximos
+    </button>
+
+    <ul id="personagens">
+    </ul>
+</body>
+</html>
+

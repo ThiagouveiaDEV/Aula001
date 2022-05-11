@@ -1,0 +1,41 @@
+h1 {
+    padding-left: 10px;
+    background-color: rgb(4, 0, 255);
+    border: 2px solid green;
+    font-weight: bold;
+}
+
+p {
+    background-color: aqua;
+}
+
+/* estilos dos eventos */
+.eventos {
+    background-color: yellow;
+}
+
+#eventos_pagos {
+    font-weight: bold;
+}
+
+#eventos_pagos:hover {
+    background-color: blueviolet;
+}
+
+/* estilos das promoções */
+#proximas_promocoes {
+    background-color: green;
+}
+
+button {
+    background-color: rgb(238, 168, 168);
+    border: 1px solid #565353;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.erro {
+    color: red;
+    font-weight: bold;
+    font-size: 10px;
+}
